@@ -1,24 +1,3 @@
-
-locals {
-  data_inputs = <<-EOT
-    #!/bin/bash
-
-    # Step 1: Clone the Snipe-IT repository
-    git clone https://github.com/snipe/snipe-it
-
-    # Step 2: Change directory to the Snipe-IT folder
-    cd snipe-it
-
-    # Step 3: Run the install.sh script
-    ./install.sh <<EOF
-    ${data.azurerm_public_ip.vm_public_ip.ip_address}
-    y
-    n
-    EOF
-  EOT
-}
-
-
 resource "azurerm_resource_group" "pt_resources" {
   name     = "pt_resources_akshatha_v2"
   location = "northeurope"
